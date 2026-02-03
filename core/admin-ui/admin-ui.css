@@ -1,0 +1,28 @@
+:root{--fg:#0f172a;--muted:#475569;--border:#e2e8f0;--bg:#ffffff;--soft:#f8fafc;--ok:#166534;--warn:#a16207;--bad:#b91c1c;}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;background:var(--bg);color:var(--fg)}
+.bg{background:#fff}
+.wrap{max-width:1200px;margin:0 auto;padding:16px}
+.hdr{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:10}
+.title{font-weight:800;font-size:16px}
+.small{font-size:12px}
+.muted{color:var(--muted)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:14px;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.center{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+label{display:block;font-size:12px;color:var(--muted);margin:10px 0 6px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:10px}
+.btn{padding:9px 12px;border:1px solid var(--border);background:var(--soft);border-radius:10px;cursor:pointer;font-weight:700;font-size:12px}
+.btn.primary{background:#111827;color:#fff;border-color:#111827}
+.tabs{margin:10px 0 14px}
+.tab{padding:8px 10px;border:1px solid var(--border);border-radius:999px;background:#fff;cursor:pointer;font-weight:700;font-size:12px}
+.tab.active{background:#111827;color:#fff;border-color:#111827}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;border:1px solid var(--border);font-size:12px;background:var(--soft)}
+.pill.ok{color:var(--ok);border-color:#bbf7d0;background:#f0fdf4}
+.pill.bad{color:var(--bad);border-color:#fecaca;background:#fef2f2}
+.pill.warn{color:var(--warn);border-color:#fde68a;background:#fffbeb}
+.log{background:#0b1020;color:#e5e7eb;border-radius:12px;padding:10px;overflow:auto;min-height:100px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border-bottom:1px solid var(--border);padding:8px;vertical-align:top;text-align:left}
+th{background:var(--soft);color:var(--muted)}
+a{color:#2563eb;text-decoration:none}
+a:hover{text-decoration:underline}

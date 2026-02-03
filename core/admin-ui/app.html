@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Content360 Admin</title>
+  <link rel="stylesheet" href="/c360/v1/admin/ui/admin-ui.css">
+</head>
+<body class="bg">
+  <header class="hdr">
+    <div class="wrap row">
+      <div style="flex:1">
+        <div class="title">Content360 Admin</div>
+        <div class="muted small">S3++++ — Jobs • AEJ • Clients • Health</div>
+      </div>
+      <button class="btn" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="tabs row">
+      <button class="tab active" data-tab="health">Health</button>
+      <button class="tab" data-tab="jobs">Jobs</button>
+      <button class="tab" data-tab="job">Job detail</button>
+      <button class="tab" data-tab="aej">AEJ</button>
+      <button class="tab" data-tab="clients">Clients</button>
+      <div style="flex:1"></div>
+      <span class="pill" id="pillStatus">ready</span>
+    </div>
+
+    <div id="panel-health" class="panel card"></div>
+    <div id="panel-jobs" class="panel card" style="display:none"></div>
+    <div id="panel-job" class="panel card" style="display:none"></div>
+    <div id="panel-aej" class="panel card" style="display:none"></div>
+    <div id="panel-clients" class="panel card" style="display:none"></div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>Call log</h3>
+      <pre id="log" class="log"></pre>
+    </div>
+  </div>
+
+<script src="/c360/v1/admin/ui/admin-ui.js"></script>
+</body>
+</html>

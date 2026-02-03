@@ -1,0 +1,27 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Content360 Admin — Login</title>
+  <link rel="stylesheet" href="/c360/v1/admin/ui/admin-ui.css">
+</head>
+<body class="bg">
+  <div class="center">
+    <div class="card" style="max-width:420px">
+      <h1>Content360 Admin</h1>
+      <p class="muted">Connexion requise.</p>
+      <label>Mot de passe admin</label>
+      <input id="pwd" type="password" placeholder="••••••••" />
+      <div class="row" style="margin-top:12px">
+        <button class="btn primary" id="loginBtn">Se connecter</button>
+      </div>
+      <pre id="err" class="log" style="display:none;margin-top:12px"></pre>
+    </div>
+  </div>
+
+  <!-- CSP OK: no inline script -->
+  <script src="/c360/v1/admin/ui/admin-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+services:
+  api:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./core:/app
+    env_file:
+      - /opt/content360/.env
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    command: sh -c "npm i && node index.js"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+
+  worker:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./core:/app
+    env_file:
+      - /opt/content360/.env
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    command: sh -c "node worker.js"
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    env_file:
+      - /opt/content360/.env
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - ./data/redis:/data
+    restart: unless-stopped

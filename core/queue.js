@@ -7,25 +7,20 @@ const IORedis = require("ioredis");
 let _redisSingleton = null;
 
 function redisConnection() {
-  if (_redisSingleton) return _redisSingleton;
+  if (process.env.REDIS_URL) {
+    return new IORedis(process.env.REDIS_URL, {
+      maxRetriesPerRequest: null
+    });
+  }
 
-  const host = process.env.REDIS_HOST || "redis"; // docker-compose service name
-  const port = Number(process.env.REDIS_PORT || 6379);
-  const password = process.env.REDIS_PASSWORD || undefined;
-
-  const r = new IORedis({
-    host,
-    port,
-    password,
-    // BullMQ recommends this for long-running jobs.
-    maxRetriesPerRequest: null,
-    enableReadyCheck: true,
-    // Backoff retry when Redis isn't ready yet.
-    retryStrategy(times) {
-      const delay = Math.min(times * 500, 5000);
-      return delay;
-    },
+  return new IORedis({
+    host: process.env.REDIS_HOST || "localhost",
+    port: Number(process.env.REDIS_PORT || 6379),
+    password: process.env.REDIS_PASSWORD || undefined,
+    maxRetriesPerRequest: null
   });
+}
+
 
   // Prevent process crash on connection errors.
   r.on("error", (e) => {
